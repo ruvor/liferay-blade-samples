@@ -20,7 +20,7 @@
 
 <div id="<portlet:namespace />-root"></div>
 
-<aui:script require="<%= mainRequire %>">
+<aui:script require="<%= mainRequire %>" sandbox="false">
 	const config = {
 		X: '+',
 		O: '-',

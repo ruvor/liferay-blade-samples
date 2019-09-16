@@ -17,7 +17,6 @@ include(
 	'apps:osgi-portlet',
 	'apps:render-command-portlet',
 	'apps:resource-command-portlet',
-	'apps:react-npm',
 	'apps:rest',
 	'apps:sample-verifier',
 	'apps:service-builder:jdbc:jdbc-api',
