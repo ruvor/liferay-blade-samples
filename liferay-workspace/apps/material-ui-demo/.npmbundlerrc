@@ -1,0 +1,29 @@
+{
+    "packages": {
+        "jss": {
+            "plugins": []
+        },
+        "jss-plugin-rule-value-function": {
+            "plugins": []
+        },
+        "jss-plugin-default-unit": {
+            "plugins": []
+        },
+        "jss-plugin-global": {
+            "plugins": []
+        },
+        "jss-plugin-nested": {
+            "plugins": []
+        },
+        "jss-plugin-camel-case": {
+            "plugins": []
+        },
+        "jss-plugin-vendor-prefixer": {
+            "plugins": []
+        },
+        "jss-plugin-props-sort": {
+            "plugins": []
+        }
+    },
+    "dump-report": true
+}

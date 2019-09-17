@@ -1,0 +1,23 @@
+{
+	"dependencies": {
+		"@material-ui/core": "^4.4.2",
+		"react": "^16.8.0",
+		"react-dom": "^16.8.0"
+	},
+	"description": "Material UI React Portlet",
+	"devDependencies": {
+		"@babel/cli": "^7.6.0",
+		"@babel/core": "^7.6.0",
+		"@babel/preset-env": "^7.6.0",
+		"@babel/preset-react": "^7.0.0",
+		"glob": "^7.1.4",
+		"liferay-npm-bundler": "2.0.0"
+	},
+	"main": "lib/index.js",
+	"name": "material-ui-react-npm-portlet",
+	"private": true,
+	"scripts": {
+		"build": "node del-aux-package-jsons.js && babel --source-maps -d build/resources/main/META-INF/resources src/main/resources/META-INF/resources && liferay-npm-bundler"
+	},
+	"version": "1.0.0"
+}
