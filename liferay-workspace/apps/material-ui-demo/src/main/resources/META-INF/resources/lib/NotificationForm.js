@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 import FormGroup from '@material-ui/core/FormGroup';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -18,22 +18,20 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export function NotificationForm({ users }) {
-    const formEl = useRef(null);
     const [sent, setSent] = useState(false);
     const [userId, setUser] = useState('');
     const [subject, setSubject] = useState('');
     const [body, setBody] = useState('');
     const classes = useStyles();
 
-    const onSelectUser = useCallback(event => {
-        setUser(event.target.value);
-    }, [users]);
+    const onSelectUser = useCallback(event => setUser(event.target.value), []);
     const onSubjectChange = useCallback(event => setSubject(event.target.value), []);
     const onBodyChange = useCallback(event => setBody(event.target.value), []);
     const onSubmit = event => {
         event.preventDefault();
-        const url = new URL(formEl.current.action);
-        const portletNamespace = configurator.getConfig().portletNamespace;
+        const config = configurator.getConfig();
+        const url = new URL(config.notificationServiceUrl, window.location.href);
+        const portletNamespace = config.portletNamespace;
         url.searchParams.append(`${portletNamespace}user`, userId);
         url.searchParams.append(`${portletNamespace}subject`, subject);
         url.searchParams.append(`${portletNamespace}body`, body);
@@ -45,7 +43,7 @@ export function NotificationForm({ users }) {
                     <MenuItem key={user.userId} value={user.userId}>{user.firstName} {user.lastName}</MenuItem>);
 
     return (
-        <form action="#" ref={formEl} onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
             <FormGroup>
                 <FormControl required error={!userId}>
                     <InputLabel>Пользователь</InputLabel>
@@ -78,7 +76,7 @@ export function NotificationForm({ users }) {
                 disabled={!users || !userId || !subject}>
                 Primary
             </Button>
-            {sent? <FormHelperText>Уведомление отправлено</FormHelperText> : null}
+            {sent ? <FormHelperText>Уведомление отправлено</FormHelperText> : null}
         </form>
     );
 }

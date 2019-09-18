@@ -27,6 +27,7 @@
 		X: '+',
 		O: '-',
 		portletNamespace: '<portlet:namespace />',
+		notificationServiceUrl: '/',
 	};
 	main.default('<portlet:namespace />-root', config);
 </aui:script>
