@@ -5,14 +5,14 @@ import configurator from './configurator';
 
 import { Game } from './Game';
 import { Switches } from './Switches';
-
-
+import { Notifications } from './Notifications';
 
 function Demo() {
 	return (
 		<div>
 			<Game />
 			<Switches />
+			<Notifications />
 		</div>
 	);
 }

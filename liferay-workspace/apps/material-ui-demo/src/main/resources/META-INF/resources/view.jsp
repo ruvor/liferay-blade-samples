@@ -26,6 +26,7 @@
 	const config = {
 		X: '+',
 		O: '-',
+		portletNamespace: '<portlet:namespace />',
 	};
 	main.default('<portlet:namespace />-root', config);
 </aui:script>
