@@ -35,7 +35,13 @@ export function NotificationForm({ users }) {
         url.searchParams.append(`${portletNamespace}user`, userId);
         url.searchParams.append(`${portletNamespace}subject`, subject);
         url.searchParams.append(`${portletNamespace}body`, body);
-        fetch(url).then(() => setSent(true), e => console.error(e));
+        fetch(url).then((response) => {
+            if (response.status === 200) {
+                setSent(true);
+            } else {
+                console.error(response.status);
+            }
+        }, e => console.error(e));
     };
     const userOptions = !users ?
             [<MenuItem key="">Загрузка...</MenuItem>] :
