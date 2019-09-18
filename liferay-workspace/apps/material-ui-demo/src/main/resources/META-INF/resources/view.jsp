@@ -18,6 +18,8 @@
 
 <%@ include file="/init.jsp" %>
 
+<liferay-portlet:actionURL name="notification" var="notificationURL" />
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
 
 <div id="<portlet:namespace />-root"></div>
@@ -27,7 +29,7 @@
 		X: '+',
 		O: '-',
 		portletNamespace: '<portlet:namespace />',
-		notificationServiceUrl: '/',
+		notificationServiceUrl: '<%=notificationURL.toString()%>',
 	};
 	main.default('<portlet:namespace />-root', config);
 </aui:script>
