@@ -30,12 +30,15 @@ export function NotificationForm({ users }) {
     const onSubmit = event => {
         event.preventDefault();
         const config = configurator.getConfig();
-        const url = new URL(config.notificationServiceUrl, window.location.href);
         const portletNamespace = config.portletNamespace;
-        url.searchParams.append(`${portletNamespace}user`, userId);
-        url.searchParams.append(`${portletNamespace}subject`, subject);
-        url.searchParams.append(`${portletNamespace}body`, body);
-        fetch(url).then((response) => {
+        const formData = new FormData();
+        formData.append(`${portletNamespace}user`, userId);
+        formData.append(`${portletNamespace}subject`, subject);
+        formData.append(`${portletNamespace}body`, body);
+        fetch(config.notificationServiceUrl, {
+            method: 'POST',
+            body: formData,
+        }).then((response) => {
             if (response.status === 200) {
                 setSent(true);
             } else {
