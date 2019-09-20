@@ -18,7 +18,7 @@
 
 <%@ include file="/init.jsp" %>
 
-<liferay-portlet:actionURL name="notification" var="notificationURL" />
+<liferay-portlet:actionURL name="/send/notification" var="notificationURL" />
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
 
