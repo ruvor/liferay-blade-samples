@@ -18,7 +18,7 @@
 	"private": true,
 	"scripts": {
 		"build": "babel --source-maps -d build/resources/main/META-INF/resources src/main/resources/META-INF/resources && liferay-npm-bundler",
-		"postinstall": "node del-aux-package-jsons"
+		"postinstall": "node del-aux-package-jsons && node eliminate-source-maps"
 	},
 	"version": "1.0.0"
 }

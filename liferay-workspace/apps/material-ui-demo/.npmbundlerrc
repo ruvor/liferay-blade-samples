@@ -1,4 +1,28 @@
 {
+    "exclude": {
+        "*": [
+            "src/**/*",
+            "test/**/*",
+            "**/*.map",
+            "**/*.md",
+            "**/*.ts",
+            "**/*.flow",
+            "**/*.txt"
+        ]
+    },
+    "*": {
+        "copy-plugins": ["exclude-imports"],
+        "plugins": ["replace-browser-modules"],
+        ".babelrc": {
+            "sourceMaps": false,
+            "presets": ["liferay-standard"]
+        },
+        "post-plugins": [
+            "namespace-packages",
+            "inject-imports-dependencies",
+            "inject-peer-dependencies"
+        ]
+    },
     "packages": {
         "jss": {
             "plugins": []
